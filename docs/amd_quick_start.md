@@ -35,6 +35,19 @@ if torch.cuda.is_available():
 PY
 ```
 
+
+### Installation
+```bash
+cd OpenRLHF
+pip install -e . --no-deps --root-user-action=ignore
+```
+
+
+> [!WARNING] 
+> If you want to use the latest OpenRLHF project, you can delete the OpenRLHF folder in the workspace directory and then re-clone the project; however, there may be risks related to environment compatibility.
+
+
+
 ### Example Workflow
 **Colocate mode + PPO**
 ```bash
