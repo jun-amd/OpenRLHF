@@ -10,7 +10,7 @@ This document is a quick-start tutorial for running OpenRLHF on AMD ROCm. It pro
 
 ### Software Baseline and Launch Container
 Use the following prebuilt image for tutorial and validation:
-- amdagi/openrlhf:ubuntu22.04-rocm7.0.2-py312-torch2.9.1-vllm0.20.2-openrlhf4.13.0-gfx942-v1
+- amdagi/openrlhf:ubuntu22.04-rocm7.0.2-py312-torch2.9.1-vllm0.20.2-openrlhf4.13.0-gfx942-v2
 
 **launch Container**
 ```bash
