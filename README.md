@@ -41,6 +41,7 @@ OpenRLHF is **the first** high-performance, production-ready open-source RLHF fr
 - [📋 Features Overview](#comprehensive-features) - Complete RLHF pipeline capabilities
 - [🎬 Quick Start](#quick-start) - Installation and typical workflow
 - [🎓 Training Guide](#supervised-fine-tuning) - SFT, Reward Model, RL Training
+- [🎓 AMD Support](#amd-support) - PPO Training
 - [🎯 Single-Turn Agent](#single-turn-agent-reinforced-fine-tuning-with-custom-rewards) - Custom reward functions
 - [🤖 Multi-Turn Agent](#multi-turn-agent-complex-environment-interactions) - Complex environments
 - [🔧 Advanced Topics](#advanced-topics) - LoRA, performance tuning
@@ -514,6 +515,12 @@ ray job submit --address="http://127.0.0.1:8265" \
 > **Troubleshooting GPU index errors**: Set `export RAY_EXPERIMENTAL_NOSET_CUDA_VISIBLE_DEVICES=1` if you encounter DeepSpeed GPU device setup issues.
 
 📚 **More Examples**: See [examples/scripts](./examples/scripts/) and [Documentation](https://openrlhf.readthedocs.io/en/latest/usage.html)
+
+---
+<a id="amd-support"></a>
+### AMD Support
+OpenRLHF runs on AMD ROCm GPUs (MI300X) and supports Hybrid Engine PPO training. For container startup, environment verification, and training examples, see the [AMD ROCm Quick Start Guide](./docs/amd_quick_start.md).
+
 
 ---
 
