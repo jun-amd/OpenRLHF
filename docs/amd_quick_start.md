@@ -3,14 +3,13 @@
 ### Overview
 This document is a quick-start tutorial for running OpenRLHF on AMD ROCm. It provides a production-style bring-up flow for container startup, environment verification, and training examples.
 
-**Current software and hardware scope**:
-- Runtime modes: Colocate
+**Current hardware scope**:
 - GPU targets: MI300X (gfx942)
 
 
 ### Software Baseline and Launch Container
 Use the following prebuilt image for tutorial and validation:
-- amdagi/openrlhf:ubuntu22.04-rocm7.0.2-py312-torch2.9.1-vllm0.20.2-openrlhf4.13.0-gfx942-v2
+- amdagi/openrlhf:ubuntu22.04-rocm7.0.2-py312-torch2.9.1-vllm0.20.2-openrlhf0.10.4-gfx942-v1
 
 **launch Container**
 ```bash
@@ -52,4 +51,22 @@ pip install -e . --no-deps --root-user-action=ignore
 **Colocate mode + PPO**
 ```bash
 bash examples/amd_scripts/train_ppo_ray_hybrid_engine.sh
+```
+
+
+**Colocate mode + DAPO (GRPO with dynamic sampling)**
+```bash
+bash examples/amd_scripts/train_dapo_ray_hybrid_engine.sh
+```
+
+
+**Colocate mode + ProRL v2 (math reasoning, REINFORCE++-baseline)**
+```bash
+bash examples/amd_scripts/train_prorlv2_math_hybrid_engine.sh
+```
+
+
+**Colocate mode + VLM (vision-language model math RLHF)**
+```bash
+bash examples/amd_scripts/train_vlm_math_hybrid_engine.sh
 ```

@@ -1,5 +1,5 @@
 NAME=openrlhf_release
-DOCKER=amdagi/openrlhf:ubuntu22.04-rocm7.0.2-py312-torch2.9.1-vllm0.20.2-openrlhf4.13.0-gfx942-v2
+DOCKER=amdagi/openrlhf:ubuntu22.04-rocm7.0.2-py312-torch2.9.1-vllm0.20.2-openrlhf0.10.4-gfx942-v1
 
 docker pull $DOCKER
 
