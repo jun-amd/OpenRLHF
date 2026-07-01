@@ -70,3 +70,7 @@ bash examples/amd_scripts/train_prorlv2_math_hybrid_engine.sh
 ```bash
 bash examples/amd_scripts/train_vlm_math_hybrid_engine.sh
 ```
+
+
+**async + partial rollout**
+- Training examples can be found here: [openrlhf.readthedocs.io](https://openrlhf.readthedocs.io/en/latest/async_training.html#launch-recipe-async-partial-rollout)
