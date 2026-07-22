@@ -1,0 +1,59 @@
+export VLLM_USE_V1=1
+
+
+python3 -m openrlhf.cli.train_ppo_ray \
+   --actor.model_name_or_path Qwen/Qwen3-4B-Thinking-2507 \
+   --train.agent_func_path examples/python/agent_func.py \
+   --data.prompt_dataset zhuzilin/dapo-math-17k \
+   --data.input_key prompt \
+   --data.label_key label \
+   --data.apply_chat_template \
+   --ds.packing_samples \
+   --train.async_enable \
+   --train.partial_rollout_enable \
+   --ref.num_nodes 1 \
+   --ref.num_gpus_per_node 4 \
+   --actor.num_nodes 1 \
+   --actor.num_gpus_per_node 4 \
+   --vllm.num_engines 4 \
+   --vllm.tensor_parallel_size 1 \
+   --vllm.gpu_memory_utilization 0.8 \
+   --train.colocate_all \
+   --ds.enable_sleep \
+   --vllm.sync_backend nccl \
+   --vllm.enforce_eager \
+   --rollout.batch_size 128 \
+   --rollout.n_samples_per_prompt 8 \
+   --train.batch_size 1024 \
+   --algo.dynamic_filtering_enable \
+   --algo.dynamic_filtering_range 0.0 1.0 \
+   --train.dynamic_batch_enable \
+   --train.max_tokens_per_gpu 16192 \
+   --rollout.max_tokens_per_gpu 32768 \
+   --train.micro_batch_size 1 \
+   --rollout.micro_batch_size 8 \
+   --data.max_len 74240 \
+   --rollout.max_new_tokens 64000 \
+   --data.max_samples 128000 \
+   --train.max_epochs 1 \
+   --train.num_episodes 1 \
+   --algo.advantage.estimator reinforce_baseline \
+   --actor.adam.lr 5e-7 \
+   --actor.entropy_coef 0.0 \
+   --algo.kl.init_coef 1e-5 \
+   --algo.kl.use_loss \
+   --algo.kl.estimator k2 \
+   --algo.advantage.is_correction_enable \
+   --algo.advantage.is_correction_type icepop \
+   --ds.zero_stage 3 \
+   --actor.gradient_checkpointing_enable \
+   --ds.ring_attn_size 2 \
+   --ds.ring_attn_head_stride 2 \
+   --ds.param_dtype bf16 \
+   --ckpt.output_dir ./exp/Qwen3-4B-Thinking \
+   --ckpt.path ./exp/Qwen3-4B-Thinking/ckpt \
+   --ckpt.save_hf \
+   --ckpt.max_num 3 \
+   --ckpt.save_steps 10 \
+   --logger.logging_steps 1 \
+   --eval.steps -1
